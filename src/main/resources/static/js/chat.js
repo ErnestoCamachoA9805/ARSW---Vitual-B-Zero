@@ -16,9 +16,6 @@ function connectToChat(userName){
              //render(data.message,data.fromLogin); // Aqui es donde hace el render de todos los mensajes
              if(selectedUser === data.fromLogin){
                 render(data.message,data.fromLogin);
-             }else{
-                 newMessages.set(data.fromLogin,data.message);
-                 $('#userNameAppender_' + data.fromLogin).append('<span id="newMessage_' + data.fromLogin + '" style= "color:red">new message</span>')
              }
          });
     });
@@ -27,7 +24,8 @@ function connectToChat(userName){
 function sendMsg(from, text){
     stompClient.send("/app/chat/" + selectedUser ,{}, JSON.stringify({
         fromLogin: from,
-        message: text
+        message: text,
+        toUser:selectedUser
     }))
 }
 
@@ -97,11 +95,6 @@ $("#logout").click(function() {
 });
 
 
-function prueba(){
-     
-    $("#usersList a").each(function(){
-        var usuario = $(this).attr('user');
-        selectUser(usuario);
-    });
-  
+function renderPastMessages(){
+    
 }

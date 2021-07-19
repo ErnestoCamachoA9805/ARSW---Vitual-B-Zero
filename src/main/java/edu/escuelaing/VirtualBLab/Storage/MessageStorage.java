@@ -31,7 +31,7 @@ public class MessageStorage {
 
     public void clearMessagesFromUser(String userName){
         for(MessageModel message: messages){
-            if (message.getFromLogin().equals(userName)){
+            if (message.getToUser().equals(userName)){
                 messages.remove(message);
             }
         }
