@@ -1,7 +1,9 @@
-const url= 'http://localhost:8080';
+const url= '';
 let stompClient;
 let selectedUser;
 let newMessages= new Map();
+
+let timerFetchAll= setInterval(()=> fetchAll(),500);
 
 function connectToChat(userName){
     console.log("Conecting to chat...")
@@ -11,7 +13,7 @@ function connectToChat(userName){
          console.log("Connected to " + frame);
          stompClient.subscribe("/topic/messages/" + userName, function(response){
              let data= JSON.parse(response.body);
-             //render(data.message,data.fromLogin);
+             //render(data.message,data.fromLogin); // Aqui es donde hace el render de todos los mensajes
              if(selectedUser === data.fromLogin){
                 render(data.message,data.fromLogin);
              }else{
@@ -45,7 +47,7 @@ function fetchAll(){
         let users= response;
         let usersTemplateHTML= "";
         for(let i= 0; i<users.length; i++){
-            usersTemplateHTML= usersTemplateHTML + '<a href="#" onclick="selectUser(\'' + users[i] + '\')"><li class="clearfix">\n' +
+            usersTemplateHTML= usersTemplateHTML + '<a href="#" onclick="selectUser(\'' + users[i] + '\')" user="' + users[i] + '"><li class="clearfix">\n' +
             '                <img src="../images/NoUserImage.PNG" width="55px" height="55px" alt="avatar" />\n' +
             '                <div class="about">\n' +
             '                    <div id="userNameAppender_' + users[i] + '" class="name">' + users[i] + '</div>\n' +
@@ -70,4 +72,36 @@ function selectUser(userName){
     }
     $('#selectedUserId').html('');
     $('#selectedUserId').append('Chat With ' + selectedUser);
+    $('#chatHistory').html('');
+}
+
+function clearAllUsers(){
+    $.post("/ClearAllUsers")
+}
+
+function clearUser(){
+    let userName= document.getElementById("userName").value;
+    $.post("/ClearUser/" + userName)
+    alert("you're free to leave")
+}
+
+
+$("#entrarthechat").click(function() {
+    $("#entrarthechat").attr('disabled', 'disabled');
+    $("#logout").removeAttr('disabled');
+});
+
+$("#logout").click(function() {
+    $("#entrarthechat").removeAttr('disabled');
+    $("#logout").attr('disabled', 'disabled');
+});
+
+
+function prueba(){
+     
+    $("#usersList a").each(function(){
+        var usuario = $(this).attr('user');
+        selectUser(usuario);
+    });
+  
 }

@@ -24,6 +24,14 @@ public class UserStorage {
         this.users = users;
     }
 
+    public void clearAllUsers(){
+        users.clear();
+    }
+
+    public void clearUser(String userName){
+        users.remove(userName);
+    }
+    
     public void addUser(String userName) throws VLabExeptions{
         if(users.contains(userName)) throw new VLabExeptions(VLabExeptions.userNameTakenException);
         users.add(userName);

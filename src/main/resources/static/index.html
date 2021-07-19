@@ -19,8 +19,10 @@
     <div class="people-list" id="people-list">
         <div class="search">
             <input id="userName" placeholder="search" type="text"/>
-            <button onclick="registration()">Enter the chat</button>
-            <button onclick="fetchAll()">Refresh</button>
+            <button id="entrarthechat" onclick="registration()">Enter the chat</button>
+            <button id="logout" onclick="clearUser()" disabled="disabled">Logout</button>
+            <button id="limpiarmemoria" onclick="clearAllUsers()">Nuke</button>
+            <!--- <button onclick="fetchAll()">Refresh</button> -->
         </div>
         <ul class="list" id="usersList">
 
@@ -42,7 +44,7 @@
         </div> <!-- end chat-header -->
 
         <div class="chat-history">
-            <ul>
+            <ul id = "chatHistory" >
 
             </ul>
 
