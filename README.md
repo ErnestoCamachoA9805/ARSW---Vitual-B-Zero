@@ -19,6 +19,8 @@ This is an effort to simulate a specific part of the B0 lab enviroment from befo
 ![](https://github.com/ErnestoCamachoA9805/ARSW---Vitual-B-Zero/blob/main/Resources/Images/Chatroom.jpg)
 
 La imagen representa la idea que se tiene al momento del GUI para un usuario 
+
+Link to Demo: https://virtual-blab.herokuapp.com/
 ## **User Histories**
 > 1 List active user on the chatroom
 >> **As** a User **I want to** know which other user are in the chatroom **so that i can** choose wheter or not to talk to them in private.
