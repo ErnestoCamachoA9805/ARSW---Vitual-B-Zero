@@ -16,7 +16,7 @@ This will be a simple chatroom that will provide students of the Computer Engeni
 ### **Problem to solve**
 This is an effort to simulate a specific part of the B0 lab enviroment from before the quarantine, the concrete objective of this project is to allow both newer and older studentes to ask for help, post specific problems, and generally be able to interack with with the other students via a chat application.
 ### **Diagrams**
-![](https://github.com/ErnestoCamachoA9805/ARSW---Vitual-B-Zero/blob/main/Resources/Images/Chatroom.jpg)
+![](https://github.com/ErnestoCamachoA9805/ARSW---Vitual-B-Zero/blob/main/Recursos/Images/Chatroom.jpg)
 
 La imagen representa la idea que se tiene al momento del GUI para un usuario 
 
